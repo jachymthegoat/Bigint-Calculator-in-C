@@ -1,0 +1,15 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -pedantic -g
+OBJ = main.o bigint.o parser.o stack.o
+BIN = calc.exe
+
+all: $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(OBJ) -o $(BIN)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(BIN)
